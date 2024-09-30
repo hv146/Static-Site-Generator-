@@ -1,16 +1,17 @@
 import shutil
 import os 
+import sys
 from pathlib import Path
 from block_markdown import (markdown_to_html_node, extract_title)
 from htmlnode import *
 
 def main():
-    copy_contents("/Users/haovu/personalProject/SSG/static", 
-                  "/Users/haovu/personalProject/SSG/public")
-
-    generate_page_recursive("/Users/haovu/personalProject/SSG/content",
-                  "/Users/haovu/personalProject/SSG/template.html",
-                  "/Users/haovu/personalProject/SSG/public"
+    copy_contents("./static", 
+                  "./public")
+    content_dir = sys.argv[1]
+    generate_page_recursive(content_dir,
+                  "./template.html",
+                  "./public"
                   )
 
 
